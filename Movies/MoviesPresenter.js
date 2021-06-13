@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components/native";
-import {ActivityIndicator, Dimensions} from "react-native";
+import {ActivityIndicator, Dimensions, View} from "react-native";
 import Swiper from "react-native-web-swiper";
 import Slide from "../components/Slide";
+
+const {width: WIDTH, height: HEIGHT} = Dimensions.get("screen");
 
 const Container = styled.View`
     flex:1;
@@ -10,10 +12,15 @@ const Container = styled.View`
     justify-content: center;
 `;
 
+const SliderContainer = styled.View`
+    width: ${WIDTH}px;
+    height: ${HEIGHT / 4}px;
+`;
+
 export default ({isLoading, nowPlaying}) => {
     // console.log(nowPlaying);
     return (
-        <Container>
+        <SliderContainer>
             {nowPlaying.length == 0 ? (
                     <ActivityIndicator color="white" size="small"/>
                 )
@@ -26,12 +33,12 @@ export default ({isLoading, nowPlaying}) => {
                                    overview={movie.overview}
                                    imagePath={movie.backdrop_path}
                                    id={movie.id}
-                                   title={movie.original_language}
+                                   title={movie.original_title}
                             />
                         ))}
                     </Swiper>
                 </>
             }
-        </Container>
+        </SliderContainer>
     )
 }

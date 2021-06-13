@@ -1,8 +1,25 @@
-import React from "react";
-import {Text, View, Button} from "react-native";
+import React, {useEffect, useState} from "react";
+import {Text, View} from "react-native";
+import {movieApi} from "../api";
 
-export default () => (
-    <View>
-        <Text>Favorites</Text>
-    </View>
-);
+export default () => {
+    const [movies, setMovies] = useState({
+        results: [],
+        error: null
+    });
+    const getData = async () => {
+        const [results, error] = await movieApi.discover();
+        setMovies({
+            results,
+            error
+        });
+    };
+    useEffect(() => {
+        getData();
+    }, []);
+    return (
+        <View>
+            <Text>{movies.results.length}</Text>
+        </View>
+    );
+};

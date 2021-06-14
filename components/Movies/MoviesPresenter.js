@@ -23,11 +23,11 @@ const UpcomingContainer = styled.View`
 `;
 
 export default ({isLoading, nowPlaying, popular, upcoming}) => {
-    // console.log(nowPlaying);
     return (
         <ScrollView
             style={{backgroundColor: "black"}}
             contentContainerStyle={{
+                flex: isLoading ? 1 : "auto",
                 justifyContent: isLoading ? "center" : "flext-start"
             }}
         >

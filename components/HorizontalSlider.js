@@ -1,9 +1,10 @@
 import React from "react";
 import Title from "./Title";
 import {ScrollView} from "react-native";
+import PropTypes from "prop-types";
 import Vertical from "./Vertical";
 
-export default ({title, children}) => (
+const Horizontal = ({title, children}) => (
     <>
         <Title title={title}/>
         <ScrollView
@@ -15,4 +16,11 @@ export default ({title, children}) => (
             {children}
         </ScrollView>
     </>
-)
+);
+
+Horizontal.propTypes = {
+    title: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired
+}
+
+export default Horizontal;

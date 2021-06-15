@@ -34,5 +34,4 @@ Vertical.propTypes = {
     poster: PropTypes.string
 }
 
-
 export default Vertical;

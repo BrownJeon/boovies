@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components/native";
 import {ActivityIndicator, Dimensions, ScrollView} from "react-native";
 import Swiper from "react-native-web-swiper";
-import Slide from "../../components/Slide";
+import Slide from "../../components/Movies/Slide";
 import Title from "../../components/Title";
 import Vertical from "../../components/Vertical";
 import Horizontal from "../../components/Horizontal";
 import ScrollContainer from "../../components/ScrollContainer";
+import HorizontalSlider from "../../components/HorizontalSlider";
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get("window");
 
@@ -42,13 +43,7 @@ export default ({isLoading, nowPlaying, popular, upcoming}) => {
                     </Swiper>
                 </SliderContainer>
                 <Container>
-                    <Title title="Popular Movies"/>
-                    <ScrollView
-                        style={{marginTop: 20, marginBottom: 40}}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        contentContainerStyle={{paddingLeft: 30}}
-                    >
+                    <HorizontalSlider title={"Popular Movies"}>
                         {popular.map(movie => (
                             <Vertical
                                 id={movie.id}
@@ -58,7 +53,7 @@ export default ({isLoading, nowPlaying, popular, upcoming}) => {
                                 poster={movie.poster_path}
                             />
                         ))}
-                    </ScrollView>
+                    </HorizontalSlider>
                     <Title title="Coming Soon"></Title>
                     {upcoming.map(movie => (
                         <Horizontal

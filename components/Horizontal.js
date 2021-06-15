@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import Poster from "./Poster";
-import {apiImage} from "../api";
 import {formatDate, trimText} from "../utils";
 import {TouchableOpacity} from "react-native";
 
@@ -39,7 +38,7 @@ const Overview = styled.Text`
 const Horizontal = ({id, title, poster, overview, releaseDate}) => (
     <TouchableOpacity>
         <Container>
-            <Poster url={apiImage(poster)}/>
+            <Poster url={poster} />
             <Data>
                 <Title>{trimText(title, 30)}</Title>
                 {releaseDate ? <ReleaseDate>{formatDate(releaseDate)}</ReleaseDate> : null}
@@ -54,7 +53,7 @@ Horizontal.propTypes = {
     title: PropTypes.string.isRequired,
     releaseDate: PropTypes.string,
     overview: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired
+    poster: PropTypes.string
 }
 
 export default Horizontal;

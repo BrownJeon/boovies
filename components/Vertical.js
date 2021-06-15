@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import Poster from "./Poster";
-import {apiImage} from "../api";
 import Votes from "./Votes";
 import {TouchableOpacity} from "react-native";
 import {trimText} from "../utils";
@@ -29,10 +28,10 @@ const Vertical = ({id, poster, title, votes}) => (
 );
 
 Vertical.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    votes: PropTypes.string.isRequired,
-    poster: PropTypes.number.isRequired
+    votes: PropTypes.number.isRequired,
+    poster: PropTypes.string
 }
 
 

@@ -18,7 +18,7 @@ export default () => {
         const [upcoming, upcomingError] = await movieApi.upcoming();
 
         setMovies({
-            isLoading: true,
+            isLoading: false,
             nowPlaying: nowPlaying,
             popular: popular,
             upcoming: upcoming,
@@ -27,13 +27,10 @@ export default () => {
             upcomingError: null
         });
 
-        //console.log(nowPlaying);
+        // console.log(upcoming);
     };
     useEffect(()=> {
         getData();
-
-        console.log(movies.nowPlaying);
-
     }, []);
 
     return <MoviesPresenter {...movies}/>;

@@ -1,6 +1,6 @@
-import React, {useEffect, useLayoutEffect} from "react";
+import React, {useLayoutEffect} from "react";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Movies from "../components/Movies/MoviesContainer";
+import Movies from "../screens/Movies/MoviesContainer";
 import Tv from "../screens/Tv";
 import Search from "../screens/Search";
 import Favorites from "../screens/Favorites";
@@ -47,8 +47,8 @@ export default ({navigation, route}) => {
                     borderTopColor: "black"
                 }
             }}>
-            <Tab.Screen name="Movies" component={Movies}/>
             <Tab.Screen name="TV" component={Tv}/>
+            <Tab.Screen name="Movies" component={Movies}/>
             <Tab.Screen name="Search" component={Search}/>
             <Tab.Screen name="Discovery" component={Favorites}/>
         </Tab.Navigator>

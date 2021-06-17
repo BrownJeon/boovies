@@ -6,6 +6,7 @@ import Poster from "../Poster";
 import {TouchableOpacity} from "react-native";
 import Votes from "../Votes";
 import {trimText} from "../../utils";
+import {useNavigation} from "@react-navigation/native";
 
 const Container = styled.View`
     width: 100%;
@@ -59,7 +60,17 @@ const ButtonText = styled.Text`
 
 
 const Slide = ({id, title, imagePath, votes, overview, poster}) => {
-    // console.log(imagePath);
+    const navigation = useNavigation();
+    const gotoDetail = async () => {
+        navigation.navigate("Detail", {
+            id,
+            title,
+            imagePath,
+            votes,
+            overview,
+            poster
+        })
+    }
     return (
         <Container>
             <BG resizeMode="cover" source={{uri: apiImage(imagePath)}}/>
@@ -71,7 +82,7 @@ const Slide = ({id, title, imagePath, votes, overview, poster}) => {
                         <Votes votes={votes} />
                     </VotesContainer>
                     <Overview>{trimText(overview, 120)}</Overview>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={gotoDetail}>
                         <Button>
                             <ButtonText>View Detail</ButtonText>
                         </Button>

@@ -27,11 +27,10 @@ export default () => {
             upcomingError: null
         });
 
-        // console.log(upcoming);
     };
     useEffect(()=> {
         getData();
     }, []);
 
-    return <MoviesPresenter {...movies}/>;
+    return <MoviesPresenter refreshFunc={getData} {...movies}/>;
 }

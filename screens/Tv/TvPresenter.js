@@ -11,10 +11,9 @@ const Container = styled.View`
 `;
 
 
-export default ({isLoading, popular, topRated, today}) => (
-    <ScrollContainer isLoading={isLoading}>
+export default ({isLoading, popular, topRated, today, refreshFunc}) => (
+    <ScrollContainer refreshFunc={refreshFunc} isLoading={isLoading}>
         <Container>
-
             <HorizontalSlider title={"Popular Shows"}>
                 {popular.map(show => (
                     <Vertical

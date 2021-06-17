@@ -4,6 +4,7 @@ import {ScrollView} from "react-native";
 import PropTypes from "prop-types";
 import Vertical from "./Vertical";
 
+// TODO array를 받아서 render해줄수 있도록 수정 필요
 const Horizontal = ({title, children}) => (
     <>
         <Title title={title}/>

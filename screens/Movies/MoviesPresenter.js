@@ -21,9 +21,9 @@ const Container = styled.View`
     padding-top: 50px;
 `;
 
-export default ({isLoading, nowPlaying, popular, upcoming}) => {
+export default ({isLoading, nowPlaying, popular, upcoming, refreshFunc}) => {
     return (
-        <ScrollContainer isLoading={isLoading}>
+        <ScrollContainer refreshFunc={refreshFunc} isLoading={isLoading}>
             <>
                 <SliderContainer>
                     <Swiper controlsEnabled={false} loop timeout={3}>

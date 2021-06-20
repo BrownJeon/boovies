@@ -17,6 +17,7 @@ export default ({isLoading, popular, topRated, today, refreshFunc}) => (
             <HorizontalSlider title={"Popular Shows"}>
                 {popular.map(show => (
                     <Vertical
+                        isTv={true}
                         id={show.id}
                         key={show.id}
                         title={show.name}
@@ -28,6 +29,7 @@ export default ({isLoading, popular, topRated, today, refreshFunc}) => (
             <HorizontalSlider title={"Top Rated"}>
                 {topRated.map(show => (
                     <Vertical
+                        isTv={true}
                         id={show.id}
                         key={show.id}
                         title={show.name}
@@ -39,6 +41,7 @@ export default ({isLoading, popular, topRated, today, refreshFunc}) => (
             <List title={"Airing Today"} >
                 {today.map(show => (
                     <Horizontal
+                        isTv={true}
                         id={show.id}
                         key={show.id}
                         title={show.name}

@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components/native";
 import ScrollContainer from "../../components/ScrollContainer";
 import {apiImage} from "../../api";
-import {Dimensions, ActivityIndicator} from "react-native";
+import {Dimensions, ActivityIndicator, TouchableOpacity} from "react-native";
 import Poster from "../../components/Poster";
 import Votes from "../../components/Votes";
 import {formatDate} from "../../utils";
+import Link from "../../components/Detail/Link";
 
 const BG = styled.Image`
     width: 100%;
@@ -57,7 +58,7 @@ const DataValue = styled.Text`
     font-weight: 500;
 `;
 
-export default ({results, isLoading}) => (
+export default ({openBrowser, results, isLoading}) => (
     <ScrollContainer isLoading={false} contentContainerStyle={{paddingBottom: 50}}>
         <Header>
             <BG source={{uri: apiImage(results.imagePath, "-")}}/>
@@ -127,6 +128,13 @@ export default ({results, isLoading}) => (
                         {results.number_of_seasons} / {results.number_of_episodes}
                     </DataValue>
                 </>
+            )}
+            {results.imdb_id && (
+                <Link
+                    text="IMDB Link"
+                    icon={"imdb"}
+                    onPress={() => openBrowser(`https://www.imdb.com/title/${results.imdb_id}`)}
+                />
             )}
         </Data>
     </ScrollContainer>

@@ -4,9 +4,9 @@ import {FontAwesome} from "@expo/vector-icons";
 import styled from "styled-components/native";
 
 const Container = styled.View`
-    margin-top: 30px;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 5px;
 `;
 
 const Text = styled.Text`
@@ -20,7 +20,7 @@ const Link = ({onPress, text, icon}) => (
             <FontAwesome
                 name={icon}
                 color="white"
-                size={18}
+                size={22}
             />
             <Text style={{color: "white"}}>{text}</Text>
         </Container>

@@ -24,7 +24,10 @@ export default ({
             poster,
             votes,
             overview,
-            spoken_language
+            spoken_language,
+            videos: {
+                results: []
+            }
         }
     });
     const getData = async () => {

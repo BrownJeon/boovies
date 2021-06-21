@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import ScrollContainer from "../../components/ScrollContainer";
 import {apiImage} from "../../api";
-import {Dimensions, ActivityIndicator, TouchableOpacity} from "react-native";
+import {Dimensions, ActivityIndicator, Text} from "react-native";
 import Poster from "../../components/Poster";
 import Votes from "../../components/Votes";
 import {formatDate} from "../../utils";
@@ -135,6 +135,18 @@ export default ({openBrowser, results, isLoading}) => (
                     icon={"imdb"}
                     onPress={() => openBrowser(`https://www.imdb.com/title/${results.imdb_id}`)}
                 />
+            )}
+            {results.videos.results?.length > 0 && (
+                <>
+                    <DataName>Vidoes</DataName>
+                    {results.videos.results.map(video => (
+                        <Link
+                            onPress={() => openBrowser(`https://www.youtube.com/watch?v=${video.key}`)}
+                            text={video.name}
+                            icon={"youtube-play"}
+                        />
+                    ))}
+                </>
             )}
         </Data>
     </ScrollContainer>

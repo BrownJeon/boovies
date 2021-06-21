@@ -66,52 +66,55 @@ export default ({openBrowser, results, isLoading}) => (
                 <Poster url={results.poster}/>
                 <Info>
                     <Title>{results.title}</Title>
-                    {results.votes && <Votes votes={results.votes}/>}
+                    {results.votes ? <Votes votes={results.votes}/> : null}
                 </Info>
             </Container>
         </Header>
         <Data>
-            {results.overview &&
+            {results.overview ? (
+
             <>
                 <DataName>Overview</DataName>
                 <DataValue>{results.overview}</DataValue>
             </>
-            }
+                ) : null}
             {isLoading && <ActivityIndicator style={{marginTop: 30}} color={"white"}/>}
-            {results.spoken_language &&
+            {results.spoken_language ? (
+
             <>
                 <DataName>languages</DataName>
                 <DataValue>
                     {results.spoken_language.map(l => `${l.name} `)}
                 </DataValue>
             </>
-            }
-            {results.release_date && <>
+                ) : null}
+            {results.release_date ? (
+                <>
                 <DataName>release Date</DataName>
                 <DataValue>
                     {formatDate(results.release_date)}
                 </DataValue>
-            </>
-            }
-            {results.status && (
+                </>
+            ) : null}
+            {results.status ? (
                 <>
                     <DataName>Status</DataName>
                     <DataValue>{results.status}</DataValue>
                 </>
-            )}
-            {results.runtime && (
+            ) : null}
+            {results.runtime ? (
                 <>
                     <DataName>Runtime</DataName>
                     <DataValue>{results.runtime} minutes</DataValue>
                 </>
-            )}
-            {results.first_air_date && (
+            ) : null}
+            {results.first_air_date ? (
                 <>
                     <DataName>First Air Date</DataName>
                     <DataValue>{formatDate(results.first_air_date)}</DataValue>
                 </>
-            )}
-            {results.genres && (
+            ) : null}
+            {results.genres ? (
                 <>
                     <DataName>Genres</DataName>
                     <DataValue>
@@ -120,23 +123,23 @@ export default ({openBrowser, results, isLoading}) => (
                         )}
                     </DataValue>
                 </>
-            )}
-            {results.number_of_episodes && (
+            ) : null}
+            {results.number_of_episodes ? (
                 <>
                     <DataName>Seasons / Episodes</DataName>
                     <DataValue>
                         {results.number_of_seasons} / {results.number_of_episodes}
                     </DataValue>
                 </>
-            )}
-            {results.imdb_id && (
+            ) : null}
+            {results.imdb_id ? (
                 <Link
                     text="IMDB Link"
                     icon={"imdb"}
                     onPress={() => openBrowser(`https://www.imdb.com/title/${results.imdb_id}`)}
                 />
-            )}
-            {results.videos.results?.length > 0 && (
+            ) : null}
+            {results.videos.results?.length > 0 ? (
                 <>
                     <DataName>Vidoes</DataName>
                     {results.videos.results.map(video => (
@@ -147,7 +150,7 @@ export default ({openBrowser, results, isLoading}) => (
                         />
                     ))}
                 </>
-            )}
+            ) : null}
         </Data>
     </ScrollContainer>
 );

@@ -15,7 +15,6 @@ export default ({
         navigation.setOptions({title: title || "Detail"});
     }, []);
 
-    const [isLoading, setIsLoading] = useState(true);
     const [detail, setDetail] = useState({
         isLoading: true,
         results: {

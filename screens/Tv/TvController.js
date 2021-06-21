@@ -4,7 +4,7 @@ import TvPresenter from "./TvPresenter";
 
 export default () => {
     const [shows, setShows] = useState({
-        isLoading: true,
+        loading: true,
         today: [],
         thisWeek: [],
         topRated: [],
@@ -21,7 +21,7 @@ export default () => {
         const [popular, popularError] = await tvApi.popular();
 
         setShows({
-            isLoading: false,
+            loading: false,
             today,
             thisWeek,
             topRated,
@@ -31,13 +31,9 @@ export default () => {
             topRatedError: null,
             popularError: null
         });
-
-        // console.log(shows);
     };
     useEffect(() => {
         getData();
     }, []);
-    return (
-        <TvPresenter refreshFunc={getData} {...shows}/>
-    );
+    return <TvPresenter refreshFunc={getData} {...shows}/>;
 }

@@ -14,9 +14,9 @@ const Text = styled.Text`
     margin-left: 10px;
 `;
 
-const Link = ({onPress, text, icon}) => (
+const Link = ({id, onPress, text, icon}) => (
     <TouchableOpacity onPress={onPress}>
-        <Container>
+        <Container key={id}>
             <FontAwesome
                 name={icon}
                 color="white"

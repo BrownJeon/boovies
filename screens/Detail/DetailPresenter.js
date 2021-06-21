@@ -72,28 +72,27 @@ export default ({openBrowser, results, isLoading}) => (
         </Header>
         <Data>
             {results.overview ? (
-
-            <>
-                <DataName>Overview</DataName>
-                <DataValue>{results.overview}</DataValue>
-            </>
-                ) : null}
+                <>
+                    <DataName>Overview</DataName>
+                    <DataValue>{results.overview}</DataValue>
+                </>
+            ) : null}
             {isLoading && <ActivityIndicator style={{marginTop: 30}} color={"white"}/>}
             {results.spoken_language ? (
 
-            <>
-                <DataName>languages</DataName>
-                <DataValue>
-                    {results.spoken_language.map(l => `${l.name} `)}
-                </DataValue>
-            </>
-                ) : null}
+                <>
+                    <DataName>languages</DataName>
+                    <DataValue>
+                        {results.spoken_language.map(l => `${l.name} `)}
+                    </DataValue>
+                </>
+            ) : null}
             {results.release_date ? (
                 <>
-                <DataName>release Date</DataName>
-                <DataValue>
-                    {formatDate(results.release_date)}
-                </DataValue>
+                    <DataName>release Date</DataName>
+                    <DataValue>
+                        {formatDate(results.release_date)}
+                    </DataValue>
                 </>
             ) : null}
             {results.status ? (

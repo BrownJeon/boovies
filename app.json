@@ -1,14 +1,16 @@
 {
   "expo": {
-    "name": "bangs movie review",
-    "slug": "noovies",
-    "version": "1.0.0",
+    "name": "boovies",
+    "slug": "boovies",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "primaryColor": "#000000",
+    "backgroundColor": "#000000",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -16,10 +18,22 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#000000"
+    },
+    "androidNavigationBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#000000"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "cloud.bangs.movies",
+      "buildNumber": "1.0.3"
     },
     "android": {
+      "package": "cloud.bangs.movies",
+      "versionCode": 3,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"

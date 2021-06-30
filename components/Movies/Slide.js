@@ -59,29 +59,29 @@ const ButtonText = styled.Text`
 `;
 
 
-const Slide = ({id, title, imagePath, votes, overview, poster}) => {
+const Slide = ({card}) => {
     const navigation = useNavigation();
     const gotoDetail = async () => {
         navigation.navigate("Detail", {
-            id,
-            title,
-            imagePath,
-            votes,
-            overview,
-            poster
+            id: card.id,
+            title: card.title,
+            imagePath: card.imagePath,
+            votes: card.votes,
+            overview: card.overview,
+            poster: card.poster
         })
     }
     return (
         <Container>
-            <BG resizeMode="cover" source={{uri: apiImage(imagePath)}}/>
+            <BG resizeMode="cover" source={{uri: apiImage(card.imagePath)}}/>
             <Content>
-                <Poster url={poster}/>
+                <Poster url={card.poster}/>
                 <Data>
-                    <Title>{trimText(title, 40)}</Title>
+                    <Title>{trimText(card.title, 40)}</Title>
                     <VotesContainer>
-                        <Votes votes={votes} />
+                        <Votes votes={card.votes} />
                     </VotesContainer>
-                    <Overview>{trimText(overview, 120)}</Overview>
+                    <Overview>{trimText(card.overview, 120)}</Overview>
                     <TouchableOpacity onPress={gotoDetail}>
                         <Button>
                             <ButtonText>View Detail</ButtonText>
@@ -94,11 +94,7 @@ const Slide = ({id, title, imagePath, votes, overview, poster}) => {
 };
 
 Slide.propTypes = {
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    votes: PropTypes.number.isRequired,
-    overview: PropTypes.string.isRequired
+    card: PropTypes.object.isRequired
 };
 
 export default Slide;

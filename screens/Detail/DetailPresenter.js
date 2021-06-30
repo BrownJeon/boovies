@@ -143,6 +143,7 @@ export default ({openBrowser, results, isLoading}) => (
                     <DataName>Vidoes</DataName>
                     {results.videos.results.map(video => (
                         <Link
+                            key={video.key}
                             onPress={() => openBrowser(`https://www.youtube.com/watch?v=${video.key}`)}
                             text={video.name}
                             icon={"youtube-play"}

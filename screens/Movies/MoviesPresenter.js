@@ -3,8 +3,6 @@ import styled from "styled-components/native";
 import {Dimensions} from "react-native";
 import Swiper from "react-native-web-swiper";
 import Slide from "../../components/Movies/Slide";
-import Vertical from "../../components/Vertical";
-import Horizontal from "../../components/Horizontal";
 import ScrollContainer from "../../components/ScrollContainer";
 import HorizontalSlider from "../../components/HorizontalSlider";
 import List from "../../components/List";
@@ -27,41 +25,13 @@ export default ({isLoading, nowPlaying, popular, upcoming, refreshFunc}) => {
                 <SliderContainer>
                     <Swiper controlsEnabled={false} loop timeout={3}>
                         {nowPlaying.map(movie => (
-                            <Slide key={movie.id}
-                                   votes={movie.vote_average}
-                                   overview={movie.overview}
-                                   imagePath={movie.backdrop_path}
-                                   id={movie.id}
-                                   title={movie.title}
-                                   poster={movie.poster_path}
-                            />
+                            <Slide card={movie} />
                         ))}
                     </Swiper>
                 </SliderContainer>
                 <Container>
-                    <HorizontalSlider title={"Popular Movies"}>
-                        {popular.map(movie => (
-                            <Vertical
-                                id={movie.id}
-                                key={movie.id}
-                                title={movie.title}
-                                votes={movie.vote_average}
-                                poster={movie.poster_path}
-                            />
-                        ))}
-                    </HorizontalSlider>
-                    <List title={"Coming Soon"}>
-                        {upcoming.map(movie => (
-                            <Horizontal
-                                key={movie.id}
-                                id={movie.id}
-                                title={movie.title}
-                                poster={movie.poster_path}
-                                releaseDate={movie.release_date}
-                                overview={movie.overview}
-                            />
-                        ))}
-                    </List>
+                    <HorizontalSlider title={"Popular Movies"} children={popular} />
+                    <List title={"Coming Soon"} children={upcoming} />
                 </Container>
             </>
         </ScrollContainer>

@@ -14,43 +14,21 @@ const Container = styled.View`
 export default ({loading, popular, topRated, today, refreshFunc}) => (
     <ScrollContainer refreshFunc={refreshFunc} isLoading={loading}>
         <Container>
-            <HorizontalSlider title={"Popular Shows"}>
-                {popular.map(show => (
-                    <Vertical
-                        isTv={true}
-                        id={show.id}
-                        key={show.id}
-                        title={show.name}
-                        votes={show.vote_average}
-                        poster={show.poster_path}
-                    />
-                ))}
-            </HorizontalSlider>
-            <HorizontalSlider title={"Top Rated"}>
-                {topRated.map(show => (
-                    <Vertical
-                        isTv={true}
-                        id={show.id}
-                        key={show.id}
-                        title={show.name}
-                        votes={show.vote_average}
-                        poster={show.poster_path}
-                    />
-                ))}
-            </HorizontalSlider>
-            <List title={"Airing Today"} >
-                {today.map(show => (
-                    <Horizontal
-                        isTv={true}
-                        id={show.id}
-                        key={show.id}
-                        title={show.name}
-                        votes={show.vote_average}
-                        poster={show.poster_path}
-                        overview={show.overview}
-                    />
-                ))}
-            </List>
+            <HorizontalSlider
+                title={"Popular Shows"}
+                isTv={true}
+                children={popular}
+            />
+            <HorizontalSlider
+                title={"Top Rated"}
+                isTv={true}
+                children={topRated}
+            />
+            <List
+                title={"Airing Today"}
+                isTv={true}
+                children={today}
+            />
         </Container>
     </ScrollContainer>
 )
